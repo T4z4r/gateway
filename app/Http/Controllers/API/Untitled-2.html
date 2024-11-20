@@ -1,0 +1,248 @@
+<div class="ibox-content">
+    <div style="font-weight: bold; font-size: 15px; margin-bottom: 15px; color: brown; border-bottom: 1px solid brown">
+        Personal Particulars
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+
+            <table class="table table-stripped table-sm ">
+                <tr>
+                    <th class="no-borders" style="width: 40%;">First Name :</th>
+                    <td class="no-borders">{{ucfirst(strtolower($customer->personal->firstname ?? ''))}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Middle Name :</th>
+                    <td class="no-borders">{{ucfirst(strtolower($customer->personal->middlename ?? ''))}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Surname :</th>
+                    <td class="no-borders">{{ucfirst(strtolower($customer->personal->surname ?? ''))}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Sex :</th>
+                    <td class="no-borders">{{$customer->personal->gender ?? ''}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Birth Date :</th>
+                    <td class="no-borders">{{$customer->personal->dob ?? ''}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Place of Birth :</th>
+                    <td class="no-borders">{{$customer->personal->place_of_birth ?? ''}}</td>
+                </tr>
+
+
+            </table>
+        </div>
+        <div class="col-md-5">
+            <table class="table table-stripped table-sm">
+                <tr>
+                    <th class="no-borders">Nationality :</th>
+                    <td class="no-borders">{{$customer->personal->nationality ?? ''}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Country of Residence :</th>
+                    <td class="no-borders">{{Helper::listOfCountries($customer->personal->country_of_origin ?? 'TZ')}}</td>
+                </tr>
+
+                <tr>
+                    <th class="no-borders">Country of Birth :</th>
+                    <td class="no-borders">{{$customer->personal->country_of_birth ?? ''}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">Marital Status :</th>
+                    <td class="no-borders">{{$customer->personal->marital_status ?? ''}}</td>
+                </tr>
+                {{-- <tr>
+                    <th class="no-borders">ID Type :</th>
+                    <td class="no-borders">{{$customer->identification_type->name ?? ''}}</td>
+                </tr>
+                <tr>
+                    <th class="no-borders">ID Number:</th>
+                    <td class="no-borders">{{$customer->id_number}}</td>
+                </tr> --}}
+            </table>
+
+
+        </div>
+        <div class="col-md-2">
+ {{-- <img src="{{asset('storage/personal_attachment/'.$customer->personal->photo) }}" style="width: 130px;"/>  --}}
+
+<img src="data:image/jpeg;base64,{{$customer->personal->photo}}" style="width: 130px;"/>
+
+
+
+</div>
+ </div>
+
+ <div style="font-weight: bold; font-size: 15px; margin-bottom: 15px; color: brown; border-bottom: 1px solid brown">
+    Contact  & Address Information
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders" style="width: 30%;">Primary Mobile:</th>
+                <td class="no-borders">{{$customer->personal->mobile1 ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Secondary Mobile:</th>
+                <td class="no-borders">{{$customer->personal->mobile2 ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Email :</th>
+                <td class="no-borders">{{$customer->personal->email ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders" style="width: 40%;">Physcal Address/street :</th>
+                <td class="no-borders">{{$customer->address->street ?? ''}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-stripped table-sm">
+
+            <tr>
+                <th class="no-borders">Postal Address :</th>
+                <td class="no-borders">{{$customer->address->postal_address ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Region :</th>
+                <td class="no-borders">{{$customer->address->region_id ??''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">District :</th>
+                <td class="no-borders">{{$customer->address->district_id ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Ward :</th>
+                <td class="no-borders">{{$customer->address->ward_id ?? '' }}</td>
+            </tr>
+
+        </table>
+
+
+    </div>
+</div>
+
+<div style="font-weight: bold; font-size: 15px; margin-bottom: 15px; color: brown; border-bottom: 1px solid brown">
+    ID  Information
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders" style="width: 30%;">ID Type:</th>
+                <td class="no-borders">{{$customer->identification_type->name ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">ID Number:</th>
+                <td class="no-borders">{{$customer->id_number ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Expire Date :</th>
+                <td class="no-borders">{{$customer->expire_date ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders" style="width: 40%;">Prefered language :</th>
+                <td class="no-borders">{{$customer->language ?? ''}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-stripped table-sm">
+
+            <tr>
+                <th class="no-borders">TIN Number :</th>
+                <td class="no-borders">{{$customer->tin_number ?? ''}}</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Staff :</th>
+                <td class="no-borders">{{($customer->is_staff =='0')?'No':'Yes'}}</td>
+            </tr>
+            {{-- <tr>
+                <th class="no-borders">IC Type :</th>
+                <td class="no-borders">{{$customer->ic_type ?? ''}}</td>
+            </tr> --}}
+            <tr>
+                <th class="no-borders">Customer IC :</th>
+                <td class="no-borders">{{$customer->customer_ic }}</td>
+            </tr>
+
+        </table>
+
+
+    </div>
+</div>
+
+
+<div style="font-weight: bold; font-size: 15px; margin-bottom: 15px; color: brown; border-bottom: 1px solid brown">
+    AML RISK Rating Information
+</div>
+<div class="row">
+    <div class="col-md-6">
+
+        @php   $screen = Helper::ratingreviewdata($customer->ecaseref,$customer->COPreference);
+                //  print_r($screen);
+        @endphp
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders" style="width: 30%;">AML Risk Rating:</th>
+                <td class="no-borders">@if(!empty($screen)) {{$screen->riskRating ?? ''}} @endif</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Screening Results:</th>
+                <td class="no-borders">@if(!empty($screen)) {{$screen->screeningResult ?? ''}} @endif</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders">Ecasa Ref :</th>
+                <td class="no-borders">@if(!empty($screen)) {{$screen->ecasaref ?? ''}} @endif</td>
+            </tr>
+            <tr>
+                <th class="no-borders">Remark :</th>
+                <td class="no-borders">{{''}}</td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>
+<div style="font-weight: bold; font-size: 15px; margin-bottom: 15px; color: brown; border-bottom: 1px solid brown">
+    KYC Maintenance Compliance
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders" style="width: 30%;">Last review date:</th>
+                <td class="no-borders">{{$customer->created_at->format('Y-m-d') ?? ''}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders" style="width: 30%;">Next Refresh Date:</th>
+                <td class="no-borders">@if(!empty($screen)) {{ $screen->nextRefresh ?? ''}} @endif</td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="col-md-4">
+        <table class="table table-stripped table-sm">
+            <tr>
+                <th class="no-borders">Due Date :</th>
+                <td class="no-borders">@if(!empty($screen)) {{ $screen->dueDate ?? '' }} @endif</td>
+            </tr>
+
+        </table>
+
+
+    </div>
+</div>
+</div>

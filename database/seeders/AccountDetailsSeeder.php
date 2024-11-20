@@ -81,7 +81,7 @@ class AccountDetailsSeeder extends Seeder
                 'account_email_address' => $faker->unique()->email(),
 
                 // Additional Fields
-                'recId' => $recId,
+                'cuId' => $recId,
                 'label' => $faker->word(),
                 'deadId' => 'N', // Default 'N' as per your schema
             ]);
